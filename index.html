@@ -9,11 +9,8 @@
     --blue-dark: #1F4E79;
     --blue-mid:  #2E75B6;
     --blue-light:#D6E4F0;
-    --yellow:    #FFD700;
     --yellow-bg: #FFF9C4;
     --yellow-text:#9C5700;
-    --green:     #1a7a1a;
-    --white:     #ffffff;
     --gray-bg:   #f4f7fb;
     --gray-row:  #DCE6F1;
     --border:    #b0c4de;
@@ -21,187 +18,171 @@
     --winner-text:#1B5E20;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: var(--gray-bg);
-    min-height: 100vh;
-    padding: 20px;
-  }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--gray-bg); min-height: 100vh; padding: 20px; }
+
   header {
-    background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
-    color: white;
-    padding: 22px 30px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    background: linear-gradient(135deg, #1F4E79, #2E75B6);
+    color: white; padding: 22px 30px; border-radius: 12px;
+    margin-bottom: 20px; display: flex; align-items: center; gap: 14px;
     box-shadow: 0 4px 16px rgba(31,78,121,0.18);
   }
-  header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: 0.5px; }
+  header h1 { font-size: 1.7rem; font-weight: 700; }
   header p  { font-size: 0.92rem; opacity: 0.85; margin-top: 3px; }
   .trophy   { font-size: 2.4rem; }
 
   .setup-panel {
-    background: white;
-    border-radius: 10px;
-    padding: 22px 26px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
-    border-left: 5px solid var(--blue-mid);
+    background: white; border-radius: 10px; padding: 22px 26px;
+    margin-bottom: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    border-left: 5px solid #2E75B6;
   }
-  .setup-panel h2 { color: var(--blue-dark); font-size: 1.05rem; margin-bottom: 12px; }
-  .input-row {
-    display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end;
-  }
+  .setup-panel h2 { color: #1F4E79; font-size: 1.05rem; margin-bottom: 12px; }
+  .input-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
   .input-row label { font-size: 0.88rem; color: #444; display: block; margin-bottom: 4px; }
   .input-row input[type=text] {
-    flex: 1; min-width: 260px;
-    padding: 9px 13px;
-    border: 2px solid var(--border);
-    border-radius: 7px;
-    font-size: 0.97rem;
-    outline: none;
-    transition: border-color 0.2s;
+    flex: 1; min-width: 260px; padding: 9px 13px;
+    border: 2px solid var(--border); border-radius: 7px;
+    font-size: 0.97rem; outline: none; transition: border-color 0.2s;
   }
-  .input-row input[type=text]:focus { border-color: var(--blue-mid); }
+  .input-row input[type=text]:focus { border-color: #2E75B6; }
+
   .btn {
-    padding: 9px 22px;
-    border: none; border-radius: 7px;
-    font-size: 0.95rem; font-weight: 600;
-    cursor: pointer; transition: all 0.18s;
+    padding: 9px 22px; border: none; border-radius: 7px;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.18s;
   }
-  .btn-primary { background: var(--blue-dark); color: white; }
-  .btn-primary:hover { background: var(--blue-mid); transform: translateY(-1px); }
+  .btn-primary { background: #1F4E79; color: white; }
+  .btn-primary:hover { background: #2E75B6; }
   .btn-danger  { background: #c0392b; color: white; }
   .btn-danger:hover  { background: #e74c3c; }
   .btn-success { background: #27ae60; color: white; }
   .btn-success:hover { background: #2ecc71; }
   .btn-export  { background: #7f8c8d; color: white; }
   .btn-export:hover  { background: #95a5a6; }
+  .btn-endgame {
+    background: linear-gradient(135deg, #8e44ad, #c0392b);
+    color: white; font-size: 1rem; padding: 10px 26px; border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(142,68,173,0.3);
+  }
+  .btn-endgame:hover { opacity: 0.9; transform: translateY(-1px); }
 
   .actions-bar {
     display: flex; gap: 10px; flex-wrap: wrap;
-    margin-bottom: 18px;
+    margin-bottom: 18px; align-items: center;
   }
+  .actions-divider { width: 1px; height: 32px; background: #ccc; margin: 0 4px; }
 
-  .table-wrap {
-    overflow-x: auto;
-    border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
-  }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    min-width: 500px;
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  thead tr {
-    background: var(--blue-dark);
-    color: white;
-  }
+  .table-wrap { overflow-x: auto; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.09); }
+  table { border-collapse: collapse; width: 100%; min-width: 500px; background: white; }
+  thead tr { background: #1F4E79; color: white; }
   thead th {
-    padding: 11px 14px;
-    font-size: 0.92rem;
-    font-weight: 600;
-    text-align: center;
-    white-space: nowrap;
+    padding: 11px 14px; font-size: 0.92rem; font-weight: 600;
+    text-align: center; white-space: nowrap;
     border-right: 1px solid rgba(255,255,255,0.15);
   }
-  thead th:first-child { text-align: center; width: 70px; }
-  thead th.winner-col  { background: #145a32; min-width: 180px; }
+  thead th.winner-col { background: #145a32; min-width: 200px; }
 
-  tbody tr { transition: background 0.12s; }
   tbody tr:nth-child(odd)  { background: var(--gray-row); }
   tbody tr:nth-child(even) { background: white; }
   tbody tr:hover { background: #c8daf0; }
 
   td {
-    padding: 0;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
+    padding: 0; border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border); text-align: center;
   }
   td.round-cell {
-    font-weight: 700;
-    color: var(--blue-dark);
-    font-size: 0.9rem;
-    padding: 8px 6px;
-    background: var(--blue-light);
-    width: 60px;
+    font-weight: 700; color: #1F4E79; font-size: 0.9rem;
+    padding: 8px 6px; background: var(--blue-light); width: 60px;
   }
   td input[type=number] {
-    width: 100%; height: 100%;
-    min-height: 38px;
-    border: none;
-    background: transparent;
-    text-align: center;
-    font-size: 1rem;
-    font-family: inherit;
-    outline: none;
-    padding: 6px 4px;
-    cursor: pointer;
+    width: 100%; min-height: 38px; border: none; background: transparent;
+    text-align: center; font-size: 1rem; font-family: inherit;
+    outline: none; padding: 6px 4px; cursor: pointer; display: block;
   }
-  td input[type=number]:focus {
-    background: #e3f0ff;
-    box-shadow: inset 0 0 0 2px var(--blue-mid);
-  }
-  /* Hide number input spinners */
+  td input[type=number]:focus { background: #e3f0ff; box-shadow: inset 0 0 0 2px #2E75B6; }
   td input[type=number]::-webkit-inner-spin-button,
   td input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
   td input[type=number] { -moz-appearance: textfield; }
 
-  /* Yellow highlight for zero */
   td.zero-cell { background: var(--yellow-bg) !important; }
   td.zero-cell input { color: var(--yellow-text); font-weight: 700; }
 
   td.winner-cell {
-    background: var(--winner-bg);
-    color: var(--winner-text);
-    font-weight: 700;
-    font-size: 0.88rem;
-    padding: 6px 10px;
-    min-width: 180px;
-    text-align: left;
-    white-space: nowrap;
+    background: var(--winner-bg); color: var(--winner-text);
+    font-weight: 700; font-size: 0.88rem; padding: 6px 10px;
+    text-align: left; white-space: nowrap;
   }
 
-  tfoot tr { background: var(--blue-dark); color: white; }
-  tfoot td {
-    padding: 9px 10px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-color: rgba(255,255,255,0.2);
-  }
+  tfoot tr { background: #1F4E79; color: white; }
+  tfoot td { padding: 9px 10px; font-weight: 700; font-size: 0.9rem; border-color: rgba(255,255,255,0.2); }
   tfoot td.total-label { background: #145a32; }
 
-  .legend {
-    display: flex; gap: 18px; flex-wrap: wrap;
-    margin-top: 16px; font-size: 0.85rem; color: #555;
+  #endgamePanel { display: none; margin-top: 30px; animation: slideIn 0.4s ease; }
+  @keyframes slideIn { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+  .endgame-header {
+    background: linear-gradient(135deg, #8e44ad, #c0392b);
+    color: white; padding: 20px 28px; border-radius: 12px 12px 0 0;
+    display: flex; align-items: center; gap: 14px;
   }
+  .endgame-header h2 { font-size: 1.4rem; }
+  .endgame-header p  { font-size: 0.88rem; opacity: 0.85; margin-top: 3px; }
+  .endgame-body {
+    background: white; border-radius: 0 0 12px 12px; padding: 24px;
+    box-shadow: 0 4px 20px rgba(142,68,173,0.15);
+  }
+  .formula-note {
+    background: #f8f0ff; border-left: 4px solid #8e44ad;
+    padding: 10px 16px; border-radius: 0 8px 8px 0;
+    font-size: 0.85rem; color: #555; margin-bottom: 20px;
+  }
+  .formula-note strong { color: #8e44ad; }
+
+  .results-table-wrap { overflow-x: auto; }
+  .results-table { width: 100%; border-collapse: collapse; min-width: 400px; }
+  .results-table thead tr { background: linear-gradient(135deg, #8e44ad, #c0392b); }
+  .results-table thead th {
+    padding: 12px 18px; font-size: 0.92rem; font-weight: 700;
+    color: white; text-align: center; border-right: 1px solid rgba(255,255,255,0.2);
+  }
+  .results-table thead th:first-child { text-align: left; }
+  .results-table tbody tr { border-bottom: 1px solid #e8d5f5; }
+  .results-table tbody tr:hover { background: #f8f0ff; }
+  .results-table tbody td {
+    padding: 13px 18px; font-size: 0.97rem;
+    text-align: center; border-right: 1px solid #e8d5f5;
+  }
+  .results-table tbody td:first-child { text-align: left; font-weight: 600; }
+  .results-table tbody tr.winner-row { background: #fffde7; }
+
+  .rank-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    font-weight: 800; font-size: 0.85rem; margin-right: 6px;
+  }
+  .rank-1 { background: #FFD700; color: #7a5800; }
+  .rank-2 { background: #C0C0C0; color: #444; }
+  .rank-3 { background: #CD7F32; color: white; }
+  .rank-other { background: #e0e0e0; color: #555; }
+
+  .score-pos { color: #27ae60; font-weight: 800; font-size: 1.05rem; }
+  .score-neg { color: #c0392b; font-weight: 800; font-size: 1.05rem; }
+  .score-zer { color: #7f8c8d; font-weight: 700; font-size: 1.05rem; }
+
+  .endgame-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 16px; font-size: 0.85rem; color: #555; }
   .legend-item { display: flex; align-items: center; gap: 6px; }
-  .legend-swatch {
-    width: 18px; height: 18px; border-radius: 4px; border: 1px solid #ccc;
-  }
+  .legend-swatch { width: 18px; height: 18px; border-radius: 4px; border: 1px solid #ccc; }
 
   .empty-state {
-    text-align: center; padding: 60px 20px;
-    color: #888; font-size: 1rem;
-    background: white; border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    text-align: center; padding: 60px 20px; color: #888;
+    background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.07);
   }
   .empty-state .big-icon { font-size: 3rem; margin-bottom: 12px; }
 
   .toast {
-    position: fixed; bottom: 24px; right: 24px;
-    background: #27ae60; color: white;
-    padding: 12px 22px; border-radius: 8px;
-    font-weight: 600; font-size: 0.95rem;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    opacity: 0; transform: translateY(20px);
-    transition: all 0.3s; pointer-events: none; z-index: 999;
+    position: fixed; bottom: 24px; right: 24px; background: #27ae60;
+    color: white; padding: 12px 22px; border-radius: 8px; font-weight: 600;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18); opacity: 0;
+    transform: translateY(20px); transition: all 0.3s; pointer-events: none; z-index: 999;
   }
   .toast.show { opacity: 1; transform: translateY(0); }
 
@@ -209,7 +190,12 @@
     body { padding: 10px; }
     header { padding: 14px 16px; }
     header h1 { font-size: 1.2rem; }
-    .setup-panel { padding: 14px 14px; }
+    .setup-panel { padding: 14px; }
+    .endgame-body { padding: 14px; }
+  }
+  @media print {
+    .setup-panel, #actionsBar, .legend, .toast, .endgame-actions { display: none !important; }
+    body { background: white; padding: 0; }
   }
 </style>
 </head>
@@ -228,20 +214,21 @@
   <div class="input-row">
     <div style="flex:1;min-width:260px">
       <label for="playerInput">Enter player names separated by commas</label>
-      <input type="text" id="playerInput" placeholder="e.g. Alice, Bob, Charlie, Dave"
-             onkeydown="if(event.key==='Enter') buildTable()">
+      <input type="text" id="playerInput" placeholder="e.g. Alice, Bob, Charlie, Dave">
     </div>
     <div>
       <label>&nbsp;</label>
-      <button class="btn btn-primary" onclick="buildTable()">▶ Build Table</button>
+      <button class="btn btn-primary" id="buildBtn">▶ Build Table</button>
     </div>
   </div>
 </div>
 
 <div id="actionsBar" class="actions-bar" style="display:none">
-  <button class="btn btn-danger"  onclick="resetTable()">🔄 Reset</button>
-  <button class="btn btn-success" onclick="exportCSV()">⬇ Export CSV</button>
-  <button class="btn btn-export"  onclick="printTable()">🖨 Print</button>
+  <button class="btn btn-danger"  id="resetBtn">🔄 Reset</button>
+  <button class="btn btn-success" id="exportBtn">⬇ Export CSV</button>
+  <button class="btn btn-export"  id="printBtn">🖨 Print</button>
+  <div class="actions-divider"></div>
+  <button class="btn btn-endgame" id="endBtn">🏁 End Game</button>
 </div>
 
 <div id="tableContainer">
@@ -262,198 +249,291 @@
   </div>
 </div>
 
+<div id="endgamePanel">
+  <div class="endgame-header">
+    <div style="font-size:2rem">🏁</div>
+    <div>
+      <h2>Game Over — Final Results</h2>
+      <p>Rankings: Sum of Winner Points − Total Column Score</p>
+    </div>
+  </div>
+  <div class="endgame-body">
+    <div class="formula-note">
+      <strong>Final Score =</strong> Sum of points earned in rounds where the player scored 0
+      <strong>minus</strong> the player's total column score.
+      If 2+ players score 0 in a round, the other players' points are split equally.
+      Higher final score = better performance.
+    </div>
+    <div class="results-table-wrap">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Rank</th><th>Player</th>
+            <th>Winner Points</th><th>Total Column Score</th><th>Final Score</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+    </div>
+    <div class="endgame-actions">
+      <button class="btn btn-primary" id="exportResultsBtn">⬇ Export Results CSV</button>
+      <button class="btn btn-export"  id="printResultsBtn">🖨 Print Results</button>
+      <button class="btn btn-danger"  id="newGameBtn">🔄 New Game</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
-let players = [];
-const ROUNDS = 25;
+(function () {
+  var players = [];
+  var ROUNDS  = 25;
 
-function buildTable() {
-  const raw = document.getElementById('playerInput').value.trim();
-  if (!raw) { showToast('Please enter at least one player name.', '#c0392b'); return; }
-
-  players = raw.split(',').map(s => s.trim()).filter(s => s.length > 0);
-  if (players.length === 0) { showToast('No valid names found.', '#c0392b'); return; }
-
-  renderTable();
-  document.getElementById('actionsBar').style.display = 'flex';
-  document.getElementById('legend').style.display = 'flex';
-  showToast(`✅ ${players.length} player(s) added! Enter scores below.`);
-}
-
-function renderTable() {
-  const container = document.getElementById('tableContainer');
-
-  let html = '<div class="table-wrap"><table id="scoreTable">';
-
-  // Header
-  html += '<thead><tr>';
-  html += '<th>Round</th>';
-  players.forEach(p => { html += `<th>${escHtml(p)}</th>`; });
-  html += '<th class="winner-col">🏆 Winner</th>';
-  html += '</tr></thead>';
-
-  // Body
-  html += '<tbody>';
-  for (let r = 1; r <= ROUNDS; r++) {
-    html += `<tr id="row-${r}">`;
-    html += `<td class="round-cell">${r}</td>`;
-    players.forEach((p, ci) => {
-      html += `<td id="cell-${r}-${ci}">` +
-        `<input type="number" id="inp-${r}-${ci}" value="" ` +
-        `oninput="onScoreChange(${r},${ci})" ` +
-        `onchange="onScoreChange(${r},${ci})" ` +
-        `placeholder="–" min="0">` +
-        `</td>`;
-    });
-    html += `<td class="winner-cell" id="winner-${r}">—</td>`;
-    html += '</tr>';
-  }
-  html += '</tbody>';
-
-  // Footer totals
-  html += '<tfoot><tr>';
-  html += '<td class="round-cell" style="background:#1F4E79;color:white">Total</td>';
-  players.forEach((p, ci) => {
-    html += `<td id="total-${ci}" style="color:white;text-align:center;padding:9px 10px">0</td>`;
+  document.getElementById('buildBtn').addEventListener('click', buildTable);
+  document.getElementById('playerInput').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') buildTable();
   });
-  html += '<td class="total-label">—</td>';
-  html += '</tr></tfoot>';
+  document.getElementById('resetBtn').addEventListener('click', resetTable);
+  document.getElementById('exportBtn').addEventListener('click', exportCSV);
+  document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+  document.getElementById('endBtn').addEventListener('click', endGame);
+  document.getElementById('exportResultsBtn').addEventListener('click', exportResultsCSV);
+  document.getElementById('printResultsBtn').addEventListener('click', function () { window.print(); });
+  document.getElementById('newGameBtn').addEventListener('click', newGame);
 
-  html += '</table></div>';
-  container.innerHTML = html;
-}
+  function buildTable() {
+    var raw = document.getElementById('playerInput').value.trim();
+    if (!raw) { showToast('Please enter at least one player name.', '#c0392b'); return; }
+    players = raw.split(',').map(function (s) { return s.trim(); }).filter(function (s) { return s.length > 0; });
+    if (players.length === 0) { showToast('No valid names found.', '#c0392b'); return; }
+    document.getElementById('endgamePanel').style.display = 'none';
+    renderTable();
+    document.getElementById('actionsBar').style.display = 'flex';
+    document.getElementById('legend').style.display = 'flex';
+    showToast('✅ ' + players.length + ' player(s) added! Enter scores below.');
+  }
 
-function onScoreChange(row, col) {
-  updateRowWinner(row);
-  updateColumnTotal(col);
-}
-
-function updateRowWinner(row) {
-  const scores = [];
-  let allEmpty = true;
-
-  players.forEach((p, ci) => {
-    const inp = document.getElementById(`inp-${row}-${ci}`);
-    const cell = document.getElementById(`cell-${row}-${ci}`);
-    const val = inp.value;
-
-    if (val !== '' && val !== null) {
-      const n = parseFloat(val);
-      scores.push({ name: p, val: n });
-      allEmpty = false;
-      // Yellow highlight for zero
-      if (n === 0) {
-        cell.classList.add('zero-cell');
-      } else {
-        cell.classList.remove('zero-cell');
+  function renderTable() {
+    var container = document.getElementById('tableContainer');
+    var html = '<div class="table-wrap"><table>';
+    html += '<thead><tr><th>Round</th>';
+    players.forEach(function (p) { html += '<th>' + escHtml(p) + '</th>'; });
+    html += '<th class="winner-col">🏆 Winner</th></tr></thead><tbody>';
+    for (var r = 1; r <= ROUNDS; r++) {
+      html += '<tr><td class="round-cell">' + r + '</td>';
+      for (var ci = 0; ci < players.length; ci++) {
+        html += '<td id="cell-' + r + '-' + ci + '">' +
+          '<input type="number" id="inp-' + r + '-' + ci + '" ' +
+          'data-row="' + r + '" data-col="' + ci + '" placeholder="–" min="0"></td>';
       }
-    } else {
-      scores.push({ name: p, val: null });
-      cell.classList.remove('zero-cell');
+      html += '<td class="winner-cell" id="winner-' + r + '">—</td></tr>';
     }
-  });
+    html += '</tbody><tfoot><tr><td class="round-cell" style="background:#1F4E79;color:white">Total</td>';
+    for (var ci2 = 0; ci2 < players.length; ci2++) {
+      html += '<td id="total-' + ci2 + '" style="color:white;text-align:center;padding:9px 10px">0</td>';
+    }
+    html += '<td class="total-label">—</td></tr></tfoot></table></div>';
+    container.innerHTML = html;
 
-  const winnerCell = document.getElementById(`winner-${row}`);
-
-  if (allEmpty) {
-    winnerCell.textContent = '—';
-    return;
+    for (var r2 = 1; r2 <= ROUNDS; r2++) {
+      for (var ci3 = 0; ci3 < players.length; ci3++) {
+        (function (row, col) {
+          var inp = document.getElementById('inp-' + row + '-' + col);
+          if (inp) {
+            inp.addEventListener('input',  function () { onScoreChange(row, col); });
+            inp.addEventListener('change', function () { onScoreChange(row, col); });
+          }
+        })(r2, ci3);
+      }
+    }
   }
 
-  const filled = scores.filter(s => s.val !== null);
-  if (filled.length === 0) { winnerCell.textContent = '—'; return; }
-
-  const total = filled.reduce((sum, s) => sum + s.val, 0);
-  const zeros = filled.filter(s => s.val === 0);
-
-  if (zeros.length > 0) {
-    const names = zeros.map(s => s.name).join(', ');
-    winnerCell.textContent = `${names} = ${total}`;
-  } else {
-    // No zero: show lowest scorer
-    const minVal = Math.min(...filled.map(s => s.val));
-    const leaders = filled.filter(s => s.val === minVal).map(s => s.name).join(', ');
-    winnerCell.textContent = `(low: ${leaders} = ${total})`;
-    winnerCell.style.color = '#555';
-    winnerCell.style.fontStyle = 'italic';
-    return;
+  function onScoreChange(row, col) {
+    updateRowWinner(row);
+    updateColumnTotal(col);
   }
-  winnerCell.style.color = '';
-  winnerCell.style.fontStyle = '';
-}
 
-function updateColumnTotal(col) {
-  let sum = 0;
-  for (let r = 1; r <= ROUNDS; r++) {
-    const inp = document.getElementById(`inp-${r}-${col}`);
-    if (inp && inp.value !== '') sum += parseFloat(inp.value) || 0;
+  function updateRowWinner(row) {
+    var scores = [], allEmpty = true;
+    for (var ci = 0; ci < players.length; ci++) {
+      var inp  = document.getElementById('inp-' + row + '-' + ci);
+      var cell = document.getElementById('cell-' + row + '-' + ci);
+      var raw  = inp ? inp.value.trim() : '';
+      if (raw === '') {
+        scores.push({ name: players[ci], val: null });
+        if (cell) cell.classList.remove('zero-cell');
+      } else {
+        var n = Number(raw);
+        scores.push({ name: players[ci], val: n });
+        allEmpty = false;
+        if (cell) { n === 0 ? cell.classList.add('zero-cell') : cell.classList.remove('zero-cell'); }
+      }
+    }
+    var wc = document.getElementById('winner-' + row);
+    if (!wc) return;
+    if (allEmpty) { wc.textContent = '—'; return; }
+    var filled = scores.filter(function (s) { return s.val !== null; });
+    if (!filled.length) { wc.textContent = '—'; return; }
+    var total  = filled.reduce(function (s, x) { return s + x.val; }, 0);
+    var zeros  = filled.filter(function (s) { return s.val === 0; });
+    var others = filled.filter(function (s) { return s.val !== 0; });
+    wc.style.color = ''; wc.style.fontStyle = '';
+    if (zeros.length > 1) {
+      var ot = others.reduce(function (s, x) { return s + x.val; }, 0);
+      var sh = ot / zeros.length;
+      wc.textContent = zeros.map(function (s) { return s.name; }).join(', ') +
+        ' = ' + (sh % 1 === 0 ? sh : sh.toFixed(1)) + ' each (total ' + total + ')';
+    } else if (zeros.length === 1) {
+      wc.textContent = zeros[0].name + ' = ' + total;
+    } else {
+      var mv = Math.min.apply(null, filled.map(function (s) { return s.val; }));
+      wc.textContent = '(low: ' + filled.filter(function (s) { return s.val === mv; }).map(function (s) { return s.name; }).join(', ') + ' = ' + total + ')';
+      wc.style.color = '#888'; wc.style.fontStyle = 'italic';
+    }
   }
-  const totalCell = document.getElementById(`total-${col}`);
-  if (totalCell) totalCell.textContent = sum;
-}
 
-function resetTable() {
-  if (!confirm('Clear all scores and start over?')) return;
-  renderTable();
-  showToast('🔄 Table reset. Enter scores to begin.');
-}
+  function updateColumnTotal(col) {
+    var sum = 0;
+    for (var r = 1; r <= ROUNDS; r++) {
+      var inp = document.getElementById('inp-' + r + '-' + col);
+      if (inp && inp.value.trim() !== '') sum += Number(inp.value) || 0;
+    }
+    var el = document.getElementById('total-' + col);
+    if (el) el.textContent = sum;
+  }
 
-function exportCSV() {
-  if (players.length === 0) return;
-  let csv = 'Round,' + players.map(p => `"${p}"`).join(',') + ',Winner\n';
-  for (let r = 1; r <= ROUNDS; r++) {
-    const scores = players.map((p, ci) => {
-      const inp = document.getElementById(`inp-${r}-${ci}`);
-      return inp ? (inp.value || '') : '';
+  function endGame() {
+    if (!players.length) return;
+    var wp = [], ct = [];
+    for (var i = 0; i < players.length; i++) { wp.push(0); ct.push(0); }
+    for (var r = 1; r <= ROUNDS; r++) {
+      var scores = [];
+      for (var ci = 0; ci < players.length; ci++) {
+        var inp = document.getElementById('inp-' + r + '-' + ci);
+        scores.push((inp && inp.value.trim() !== '') ? Number(inp.value) : null);
+      }
+      var filled = scores.filter(function (v) { return v !== null; });
+      if (!filled.length) continue;
+      var zeros = [], others = [];
+      for (var ci2 = 0; ci2 < scores.length; ci2++) {
+        if (scores[ci2] !== null) {
+          ct[ci2] += scores[ci2];
+          if (scores[ci2] === 0) zeros.push(ci2); else others.push(scores[ci2]);
+        }
+      }
+      var ot = others.reduce(function (a, b) { return a + b; }, 0);
+      if (zeros.length === 1) {
+        wp[zeros[0]] += filled.reduce(function (a, b) { return a + b; }, 0);
+      } else if (zeros.length > 1) {
+        var sh = ot / zeros.length;
+        zeros.forEach(function (ci3) { wp[ci3] += sh; });
+      }
+    }
+    var results = players.map(function (name, ci) {
+      return { name: name, wp: wp[ci], ct: ct[ci], fs: wp[ci] - ct[ci] };
+    }).sort(function (a, b) { return b.fs - a.fs; });
+
+    var tbody = document.getElementById('resultsBody');
+    tbody.innerHTML = '';
+    results.forEach(function (r, idx) {
+      var rank = idx + 1;
+      var bc   = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : 'rank-other';
+      var med  = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : '';
+      var sc   = r.fs > 0 ? 'score-pos' : r.fs < 0 ? 'score-neg' : 'score-zer';
+      var tr   = document.createElement('tr');
+      if (rank === 1) tr.classList.add('winner-row');
+      tr.innerHTML =
+        '<td><span class="rank-badge ' + bc + '">' + rank + '</span>' + med + '</td>' +
+        '<td>' + escHtml(r.name) + '</td>' +
+        '<td>' + (r.wp % 1 === 0 ? r.wp : r.wp.toFixed(1)) + '</td>' +
+        '<td>' + r.ct + '</td>' +
+        '<td class="' + sc + '">' + (r.fs > 0 ? '+' : '') + (r.fs % 1 === 0 ? r.fs : r.fs.toFixed(1)) + '</td>';
+      tbody.appendChild(tr);
     });
-    const winner = document.getElementById(`winner-${r}`);
-    csv += `${r},${scores.join(',')},` +
-           `"${winner ? winner.textContent.replace(/"/g,'""') : ''}"\n`;
+    var panel = document.getElementById('endgamePanel');
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    showToast('🏁 Game ended! Final results calculated.');
   }
-  // Totals row
-  const totals = players.map((p, ci) => {
-    const el = document.getElementById(`total-${ci}`);
-    return el ? el.textContent : '0';
-  });
-  csv += `Total,${totals.join(',')},\n`;
 
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'PlayerScoreTracker.csv';
-  a.click();
-  showToast('⬇ CSV exported!');
-}
+  function exportResultsCSV() {
+    var rows = document.querySelectorAll('#resultsBody tr'), csv = 'Rank,Player,Winner Points,Total Column Score,Final Score\n';
+    rows.forEach(function (tr, idx) {
+      var tds = tr.querySelectorAll('td');
+      csv += (idx+1) + ',"' + tds[1].textContent.trim() + '",' + tds[2].textContent.trim() + ',' + tds[3].textContent.trim() + ',' + tds[4].textContent.trim() + '\n';
+    });
+    downloadBlob(csv, 'GameResults.csv');
+    showToast('⬇ Results exported!');
+  }
 
-function printTable() {
-  window.print();
-}
+  function newGame() {
+    if (!confirm('Start a new game? All current scores will be cleared.')) return;
+    players = [];
+    document.getElementById('endgamePanel').style.display = 'none';
+    document.getElementById('actionsBar').style.display   = 'none';
+    document.getElementById('legend').style.display       = 'none';
+    document.getElementById('playerInput').value          = '';
+    document.getElementById('tableContainer').innerHTML   =
+      '<div class="empty-state"><div class="big-icon">🎮</div>' +
+      '<p>Enter player names above and click <strong>Build Table</strong> to start tracking scores.</p></div>';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(function () { document.getElementById('playerInput').focus(); }, 400);
+    showToast('🔄 New game! Enter player names to begin.');
+  }
 
-function escHtml(s) {
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+  function resetTable() {
+    if (!confirm('Clear all scores and start over?')) return;
+    document.getElementById('endgamePanel').style.display = 'none';
+    renderTable();
+    showToast('🔄 Scores cleared.');
+  }
 
-function showToast(msg, color) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.style.background = color || '#27ae60';
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
-}
+  function exportCSV() {
+    if (!players.length) return;
+    var csv = 'Round,' + players.map(function (p) { return '"' + p + '"'; }).join(',') + ',Winner\n';
+    for (var r = 1; r <= ROUNDS; r++) {
+      var sc = [];
+      for (var ci = 0; ci < players.length; ci++) {
+        var inp = document.getElementById('inp-' + r + '-' + ci);
+        sc.push(inp ? (inp.value || '') : '');
+      }
+      var wc = document.getElementById('winner-' + r);
+      csv += r + ',' + sc.join(',') + ',"' + (wc ? wc.textContent.replace(/"/g,'""') : '') + '"\n';
+    }
+    var totals = [];
+    for (var ci2 = 0; ci2 < players.length; ci2++) {
+      var el = document.getElementById('total-' + ci2);
+      totals.push(el ? el.textContent : '0');
+    }
+    csv += 'Total,' + totals.join(',') + ',\n';
+    downloadBlob(csv, 'PlayerScoreTracker.csv');
+    showToast('⬇ CSV exported!');
+  }
 
-// Auto-focus input on page load
-window.onload = () => document.getElementById('playerInput').focus();
+  function downloadBlob(text, filename) {
+    var blob = new Blob([text], { type: 'text/csv' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function showToast(msg, color) {
+    var t = document.getElementById('toast');
+    t.textContent = msg; t.style.background = color || '#27ae60';
+    t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 3200);
+  }
+
+  document.getElementById('playerInput').focus();
+})();
 </script>
-
-<style>
-@media print {
-  .setup-panel, #actionsBar, .legend, .toast { display: none !important; }
-  body { background: white; padding: 0; }
-  header { border-radius: 0; box-shadow: none; }
-  .table-wrap { box-shadow: none; }
-}
-</style>
-
 </body>
 </html>
